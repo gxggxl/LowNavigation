@@ -6,3 +6,6 @@
 然后访问【你的域名/admin】即可进入后台
 默认用户名为：admin
 默认密码为：12345
+
+## 视频演示
+哔哩哔哩：https://www.bilibili.com/video/BV1VZ4y1q7bJ
