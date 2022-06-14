@@ -25,6 +25,24 @@
                         <a href="<?php echo siteurl; ?>/admin/link.php" class="px-2 py-1 mx-2 mt-2 text-sm font-medium transition-colors duration-200 transform rounded-md md:mt-0 dark:text-gray-200 hover:bg-gray-700">添加链接</a>
                         <a href="<?php echo siteurl; ?>/admin/manage-link.php" class="px-2 py-1 mx-2 mt-2 text-sm font-medium transition-colors duration-200 transform rounded-md md:mt-0 dark:text-gray-200 hover:bg-gray-700">链接管理</a>
                         <a href="<?php echo siteurl; ?>/admin/cate.php" class="px-2 py-1 mx-2 mt-2 text-sm font-medium transition-colors duration-200 transform rounded-md md:mt-0 dark:text-gray-200 hover:bg-gray-700">分类管理</a>
+                        
+                        <div class="relative inline-block" x-data="{open:false}">
+            <!-- Dropdown toggle button -->
+            <button @click="open=!open" class="flex relative z-10 block px-2 py-1 mx-2 mt-2 text-sm font-medium transition-colors duration-200 transform rounded-md md:mt-0 dark:text-gray-200 hover:bg-gray-700">
+                <span>拓展</span>
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 15.713L18.01 9.70299L16.597 8.28799L12 12.888L7.40399 8.28799L5.98999 9.70199L12 15.713Z" fill="currentColor"></path>
+                </svg>
+            </button>
+
+            <!-- Dropdown menu -->
+            <div x-show="open" x-transition class="absolute right-0 z-20 w-28 py-2 mt-2 bg-white rounded-md shadow-md dark:bg-gray-800">
+            <a href="<?php echo siteurl; ?>/admin/import.php" class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"> 批量导入 </a>
+            </div>
+        </div>
+                        
+                        
+                        
                         <a href="<?php echo siteurl; ?>/admin/setting.php" class="px-2 py-1 mx-2 mt-2 text-sm font-medium transition-colors duration-200 transform rounded-md md:mt-0 dark:text-gray-200 hover:bg-gray-700">设置</a>
                     </div>
 

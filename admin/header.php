@@ -6,7 +6,7 @@
   <title><?php echo sitename; ?><?php echo ' - '.sitedis; ?></title>
  <link rel="apple-touch-icon" href="../favicon.webp">
  <link rel="icon" href="../favicon.webp">
- <link href="../output.css" rel="stylesheet">
+ <link href="../output.css?2022" rel="stylesheet">
 <style>[x-cloak] { display: none !important; }
 .line-1 {
     word-break: break-all;

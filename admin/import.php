@@ -107,7 +107,7 @@ function ReadCsv($uploadfile='')
 <div class="mt-4">
 <form action="<?php echo siteurl; ?>/admin/import.php?up" method="post" enctype="multipart/form-data">
 <input type="file" name="up"  accept="text/csv" class="w-full text-gray-700 px-3 py-2 border rounded">
-<button type="submit" class="px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">保存</button>
+<button type="submit" class="mt-2 px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">保存</button>
 </form>
 
 <p><?php echo $tishi; ?></p>
