@@ -13,7 +13,7 @@ require_once($catepath);//载入分类数组
 <div class="grid grid-cols-2 gap-4 mt-3"> 
 <div>
 <label class="text-gray-700 dark:text-gray-200">站名</label>
-<input x-model="name" type='text' name="name" placeholder="请输入网站名字" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+<input x-model="name" type='url' name="name" placeholder="请输入网站名字" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
 </div>
 <div>
 <label class="text-gray-700 dark:text-gray-200">网站描述</label>
