@@ -67,6 +67,15 @@ exit;
 
 //添加分类
 if(isset($post['addcate'])&&isset($post['name'])&&isset($post['slug'])){//增加分类
+foreach ($fenlei as $key => $value) {
+if($value['name'] == $post['name']){
+    notice("分类名已存在，请更换分类名！");
+    exit;
+}
+if($value['slug'] == $post['slug']){
+    notice("分类缩略名已存在，请更换分类缩略名！");
+    exit;}   
+}
 $mid=addmid();
 $fenlei[]=array('mid'=>$mid,'name'=>$post['name'],'slug'=>$post['slug']);
 if (file_put_contents($catepath, "<?php\n \$fenlei= ".var_export($fenlei, true).";\n?>")) {
