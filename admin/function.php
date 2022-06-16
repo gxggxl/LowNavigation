@@ -92,7 +92,7 @@ return $Arrzong;
 
 function countif($shuzu,$a,$b){//判断分类或链接是否存在重复
 foreach ($shuzu as $key => $value) {
-if($value[$b] == $a){return true;break;}}
+if(strcasecmp($value[$b], $a) == 0){return true;break;}}
 return false;
 }
 
