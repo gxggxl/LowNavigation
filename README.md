@@ -5,7 +5,7 @@
 将程序放入到网站目录下，然后访问，根据引导填写网站地址，用户名，邮箱，以及密码即可！
 
 ## 视频演示
-哔哩哔哩：https://www.bilibili.com/video/BV1VZ4y1q7bJ
+哔哩哔哩：https://www.bilibili.com/video/BV1pT411G7iY
 
 ### 升级说明
 保留config文件夹，其余文件覆盖即可完成升级
