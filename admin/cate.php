@@ -48,6 +48,7 @@ fetch('<?php echo siteurl; ?>/admin/api.php?name='+name+'&slug='+slug<?php if(!e
 x-text="'('+item.slug+')'"></span><span class="text-gray-500 ml-1"
 x-text="'[mid:'+item.mid+']'"></span></div>
 <div><a :href="'?edit='+item.mid" class="text-green-500">修改</a>
+<?php if(empty($get['edit'])): ?>
             <button  @click="msg = '您真的确定要删除吗？';
     if (confirm(msg)==true){
     fetch('<?php echo siteurl; ?>/admin/api.php?delete=cate&mid='+item.mid,{method: 'POST',}).then(data => data.json()).then(data => {if(data.status=='-1'){Notifications(data.info,'error');}else{a=data;Notifications('链接已删除！');
@@ -56,7 +57,7 @@ x-text="'[mid:'+item.mid+']'"></span></div>
     }else{
         return false;
     }
-" type="button" class="text-red-500">删除</button>  </div>
+" type="button" class="text-red-500">删除</button><?php endif; ?>  </div>
 
         
         <div class="absolute inset-0 opacity-50" x-show.transition="dragging !== null" :class="{'bg-blue-200': dropping === index}" @dragenter.prevent="if(index !== dragging) {dropping = index}" @dragleave="if(dropping === index) dropping = null" style="display: none;"></div>
