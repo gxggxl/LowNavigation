@@ -16,6 +16,14 @@ $post=$_REQUEST;//接受请求不管get还是post
 
 //添加链接
 if(isset($post['addlink'])&&!empty($post['site'])&&!empty($post['name'])&&!empty($post['mid'])){
+if(countif($links,$post['name'],'name')){
+    notice("网站名已存在，请更换站名！");
+    exit;
+}
+elseif(countif($links,$post['site'],'site')){
+    notice("网站地址已存在，无需添加！");
+    exit;
+}    
 if (filter_var($post['site'], FILTER_VALIDATE_URL ) === false ){
 notice('网址格式不正确！');exit;}
 $links[]=array('name'=>$post['name'],'dis'=>$post['dis'],'site'=>$post['site'],'mid'=>$post['mid'],'time'=>time()); 
@@ -47,6 +55,14 @@ exit;
 
 //修改链接
 if(isset($post['edit'])&&!empty($post['site'])&&!empty($post['name'])&&!empty($post['mid'])){
+if(countif($links,$post['name'],'name')){
+    notice("网站名已存在，请更换站名！");
+    exit;
+}
+elseif(countif($links,$post['site'],'site')){
+    notice("网站地址已存在，无需添加！");
+    exit;
+} 
 if (filter_var($post['site'], FILTER_VALIDATE_URL ) === false ){
 notice('网址格式不正确！');exit;}
 foreach ($links as &$fl) {
