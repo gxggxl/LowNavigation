@@ -90,9 +90,11 @@ if(count($Arrzong)){//获取当前数组长度
 return $Arrzong;
 }
 
-function countif($shuzu,$a,$b){//判断分类或链接是否存在重复
+function countif($shuzu,$a,$b,$hulue=array()){//判断分类或链接是否存在重复
 foreach ($shuzu as $key => $value) {
-if(strcasecmp($value[$b], $a) == 0){return true;break;}}
+if(!empty($hulue)&&$value[$hulue[0]]==$hulue[1]){continue;}//修改链接或分类时跳过自身
+if(strcasecmp($value[$b], $a) == 0){return true;break;}
+}
 return false;
 }
 
