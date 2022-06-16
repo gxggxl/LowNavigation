@@ -155,7 +155,10 @@ exit;
 
 //修改网站设置
 if(!empty($post['siteurl'])&&!empty($post['sitename'])&&!empty($post['sitedis'])){
-$setting=array('siteurl'=>$post['siteurl'],'sitedis'=>$post['sitedis'],'sitename'=>$post['sitename']); 
+if (filter_var($post['siteurl'], FILTER_VALIDATE_URL ) === false ){
+notice('网址格式不正确！');exit;}   
+$siteurl=rtrim($post['siteurl'],'/');
+$setting=array('siteurl'=>$siteurl,'sitedis'=>$post['sitedis'],'sitename'=>$post['sitename']); 
 if (file_put_contents($configpath, "<?php\n \$setting= ".var_export($setting, true).";\n \$profile= ".var_export($profile, true).";\n \$config= ".var_export($config, true).";\n?>")) {
 echo json_encode($setting);
     } else{notice("设置保存错误！");}  
