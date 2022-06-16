@@ -90,4 +90,12 @@ if(count($Arrzong)){//获取当前数组长度
 return $Arrzong;
 }
 
+function countif($shuzu,$a,$b){//判断分类或链接是否存在重复
+foreach ($shuzu as $key => $value) {
+if($value[$b] == $a){return true;break;}}
+return false;
+}
+
+
+
 ?>
