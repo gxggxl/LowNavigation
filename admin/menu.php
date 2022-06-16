@@ -49,7 +49,7 @@
                     <div class="flex items-center mt-4 md:mt-0">
                         
                         <div class="flex items-center justify-center">
-        <div class="relative inline-block">
+        <div class="relative inline-block" @click.outside="profilemenu=false">
             <!-- Dropdown toggle button -->
             <button class="relative z-10 block p-2 flex items-center" aria-label="toggle profile dropdown" @click="profilemenu=!profilemenu">
                             <div class="w-8 h-8 overflow-hidden border-2 border-gray-400 rounded-full">
