@@ -67,14 +67,13 @@ exit;
 
 //添加分类
 if(isset($post['addcate'])&&isset($post['name'])&&isset($post['slug'])){//增加分类
-foreach ($fenlei as $key => $value) {
-if($value['name'] == $post['name']){
+if(countif($fenlei,$post['name'],'name')){
     notice("分类名已存在，请更换分类名！");
     exit;
 }
-if($value['slug'] == $post['slug']){
+elseif(countif($fenlei,$post['slug'],'slug')){
     notice("分类缩略名已存在，请更换分类缩略名！");
-    exit;}   
+    exit;
 }
 $mid=addmid();
 $fenlei[]=array('mid'=>$mid,'name'=>$post['name'],'slug'=>$post['slug']);
@@ -112,6 +111,14 @@ exit;
 
 //修改分类
 if(isset($post['name'])&&isset($post['slug'])&&isset($post['edit'])){//修改分类
+if(countif($fenlei,$post['name'],'name')){
+    notice("分类名已存在，请更换分类名！");
+    exit;
+}
+elseif(countif($fenlei,$post['slug'],'slug')){
+    notice("分类缩略名已存在，请更换分类缩略名！");
+    exit;
+}
 foreach ($fenlei as &$fl) {
 if($fl['mid'] == $post['edit']){
 $fl['name']=$post['name'];
