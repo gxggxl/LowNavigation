@@ -55,11 +55,13 @@ exit;
 
 //修改链接
 if(isset($post['edit'])&&!empty($post['site'])&&!empty($post['name'])&&!empty($post['mid'])){
-if(countif($links,$post['name'],'name')){
+$hulue[0]='name';
+$hulue[1]=$post['edit'];
+if(countif($links,$post['name'],'name',$hulue)){
     notice("网站名已存在，请更换站名！");
     exit;
 }
-elseif(countif($links,$post['site'],'site')){
+elseif(countif($links,$post['site'],'site',$hulue)){
     notice("网站地址已存在，无需添加！");
     exit;
 } 
@@ -127,11 +129,14 @@ exit;
 
 //修改分类
 if(isset($post['name'])&&isset($post['slug'])&&isset($post['edit'])){//修改分类
-if(countif($fenlei,$post['name'],'name')){
+
+$hulue[0]='mid';
+$hulue[1]=$post['edit'];
+if(countif($fenlei,$post['name'],'name',$hulue)){
     notice("分类名已存在，请更换分类名！");
     exit;
 }
-elseif(countif($fenlei,$post['slug'],'slug')){
+elseif(countif($fenlei,$post['slug'],'slug',$hulue)){
     notice("分类缩略名已存在，请更换分类缩略名！");
     exit;
 }
