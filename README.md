@@ -1,5 +1,6 @@
 # LowNavigation
 一个无需数据库的PHP导航程序，建议使用`PHP7`及以上。
+
 后端采用`PHP`，前端采用`TailwindCss`以及`AlpineJs`。
 
 ## 安装说明
