@@ -1,4 +1,4 @@
-<nav class="shadow bg-black text-white">
+<nav class="fixed inset-x-0 top-0 z-30 shadow bg-black text-white">
         <div class="container px-6 py-1.5 mx-auto">
             <div class="md:flex md:items-center md:justify-between">
                 <div class="flex items-center justify-between">
