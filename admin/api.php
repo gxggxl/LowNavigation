@@ -123,6 +123,7 @@ exit;
 if(!empty($post['cate'])){//修改分类排序
 $shuju=json_decode($post['cate'], true);
 if (file_put_contents($catepath, "<?php\n \$fenlei= ".var_export($shuju, true).";\n?>")) {
+    notice("分类排序完成！","1");
     } else{notice("拖拽排序写入失败！");}
 exit;
 }
