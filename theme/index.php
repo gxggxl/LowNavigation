@@ -10,23 +10,7 @@ all=data;setting=all.setting;
   <title><?php echo $setting['sitename'].' - '. $setting['sitedis']; ?></title>
  <link rel="apple-touch-icon" href="./favicon.webp">
  <link rel="icon" href="./favicon.webp">
- <link href="./theme/output.css" rel="stylesheet">
-<style>[x-cloak] { display: none !important; }
-.line-1 {
-    word-break: break-all;
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
-}
-.line-2 {
-    word-break: break-all;
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-}
-</style>
+ <link href="./theme/output.css?2020" rel="stylesheet">
 </head>
 <body class="bg-white dark:bg-gray-900">
 <nav class="bg-white shadow dark:bg-gray-800 fixed inset-x-0 z-30" x-data="{menu:false}">
@@ -92,7 +76,7 @@ x-init="fetch(api+'links.php?mid='+fenlei.mid).then(data => data.json()).then(da
                     <h2 class="text-3xl font-bold text-gray-800 dark:text-gray-100">低端导航</h2>
 
                     <p class="mt-4 text-gray-500 dark:text-gray-400 lg:max-w-md">
-                    低端导航是一款基于世界上最好的编程语言PHP开发，致力于做做简洁的导航程序！
+                    低端导航是一款基于世界上最好的编程语言PHP开发，致力于做最简洁的导航程序！
                     </p>
 
                     <div class="flex items-center mt-6 -mx-2">
