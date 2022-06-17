@@ -38,10 +38,7 @@ fetch('<?php echo siteurl; ?>/admin/api.php?name='+name+'&slug='+slug<?php if(!e
 <div class="bg-white dark:bg-black p-2 sm:p-6 mt-9" x-data="{dragging: null, dropping: null, timer: null}" 
 @drop.prevent="if(dragging !== null && dropping !== null){if(dragging < dropping) a = [...a.slice(0, dragging), ...a.slice(dragging + 1, dropping + 1), a[dragging], ...a.slice(dropping + 1)]; else a = [...a.slice(0, dropping), a[dragging], ...a.slice(dropping, dragging), ...a.slice(dragging + 1)]}; dropping = null;" 
 @dragover.prevent="$event.dataTransfer.dropEffect = 'move'" 
-@dragend.prevent="fetch('<?php echo siteurl; ?>/admin/api.php?cate='+JSON.stringify(a),
-    {credentials: 'same-origin',
-    headers: {'content-type': 'application/json'},
-method: 'POST',}).then(data => data.json()).then(data => {if(data.status=='-1'){Notifications(data.info,'error');}});"> 
+@dragend.prevent="fetch('<?php echo siteurl; ?>/admin/api.php?cate='+JSON.stringify(a),{method: 'POST',}).then(data => data.json()).then(data => {if(data.status=='-1'){Notifications(data.info,'error');}});"> 
 
 <template x-for="(item,index) in a">
 <div class="p-4 border bg-white dark:bg-gray-900 dark:text-white dark:border-gray-700 mt-2 rounded flex items-center justify-between relative cursor-move" draggable="true" :class="{'border-blue-600': dragging === index}" @dragstart="dragging = index" @dragend="dragging = null">
