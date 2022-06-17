@@ -628,6 +628,10 @@ video {
   left: 0px;
 }
 
+.top-0 {
+  top: 0px;
+}
+
 .z-30 {
   z-index: 30;
 }
