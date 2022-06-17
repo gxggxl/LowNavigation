@@ -49,6 +49,7 @@ echo json_encode($links);
 if(!empty($post['link'])){//修改排序
 $shuju=json_decode($post['link'], true);
 if (file_put_contents($linkpath, "<?php\n \$links= ".var_export($shuju, true).";\n?>")) {
+    notice("链接排序完成！","1");
     } else{notice("拖拽排序保存失败！");}
 exit;
 }
