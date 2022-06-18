@@ -171,6 +171,7 @@ exit;
 if(!empty($post['screenName'])&&!empty($post['mail'])){
 $profile=array('screenName'=>$post['screenName'],'mail'=>$post['mail'],); 
 if (file_put_contents($configpath, "<?php\n \$setting= ".var_export($setting, true).";\n \$profile= ".var_export($profile, true).";\n \$config= ".var_export($config, true).";\n?>")) {
+$profile['avatar']=avatar($profile['mail']);
 echo json_encode($profile);
     } else{notice("设置保存错误！");}   
 exit;   

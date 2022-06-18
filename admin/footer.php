@@ -43,6 +43,9 @@ document.addEventListener('alpine:init', () => {
 Alpine.data('data', () => ({
     menu:true,
     profilemenu:false,
+    myname:null,
+    mymail:null,
+    myavatar:null,
 }));
     Alpine.store('notice', {
     text:false,

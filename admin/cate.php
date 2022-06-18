@@ -17,7 +17,7 @@ $res = array_values(array_filter($fenlei,'filter'))[0];
 <?php include('menu.php') ?>
 
 <div class="container mx-auto px-2 sm:px-6" x-data="{a:[]}" 
-x-init="fetch('<?php echo siteurl; ?>/api/cate.php').then(data => data.json()).then(data=>{a=data;});">
+x-init="fetch('<?php echo siteurl; ?>/api/?type=cate').then(data => data.json()).then(data=>{a=data;});">
 
 <div x-data="{name:'<?php if(!empty($res)){echo $res['name'];} ?>',slug:'<?php if(!empty($res)){echo $res['slug'];} ?>'}" class="grid grid-cols-2 gap-4 bg-white dark:bg-black p-2 sm:p-6 mt-9"> 
 <div>

@@ -8,17 +8,15 @@
 
 
 
-
+<!--介绍-->
 <div class="bg-white dark:bg-black p-2 sm:p-6 mt-9"> 
-
 <h2 class="flex items-center text-xl font-medium text-gray-800 capitalize dark:text-white md:text-2xl"><svg class="w-6 h-6 inline text-blue-700 mr-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>概要</h2>
 <p class="mt-3 text-gray-800 dark:text-gray-200">低端导航是一款基于世界上最好的编程语言PHP开发，致力于做最简洁的导航程序！</p>
-
 </div>
+<!--介绍end-->
 
 
-
-
+<!--最近添加的链接-->
 <div class="bg-white dark:bg-black p-2 sm:p-6 mt-9" x-data="{a:''}">
 <h2 class="flex items-center text-xl font-medium text-gray-800 capitalize dark:text-white md:text-2xl"><svg class="w-6 h-6 inline text-blue-700 mr-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>最近链接</h2>
 <div class="grid grid-cols-2 xl:grid-cols-3 gap-4 mt-3" x-init="fetch('<?php echo siteurl; ?>/api/links.php?num=12').then(data => data.json()).then(data=>{
@@ -39,7 +37,7 @@ a=data;
 
 </div>
 </div>
-
+<!--最近添加的链接end-->
 
 
 

@@ -8,6 +8,7 @@ require_once($catepath);//载入分类数组
 
 <div class="container mx-auto px-2 sm:px-6" x-data="{a:''}">
 
+<!--添加链接-->
 <div class="bg-white dark:bg-black p-2 sm:p-6 mt-9" x-data="{name:'',dis:'',site:'',mid:'<?php echo $fenlei[0]['mid']; ?>',}">
 <h2 class="flex items-center text-xl font-medium text-gray-800 capitalize dark:text-white md:text-2xl"><svg class="w-6 h-6 inline text-blue-700 mr-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>添加链接</h2>
 <div class="grid grid-cols-2 gap-4 mt-3"> 
@@ -41,11 +42,10 @@ fetch('<?php echo siteurl; ?>/admin/api.php?addlink=true&name='+name+'&dis='+dis
 }else{Notifications('站名网址或分类禁止为空！','error');}" type="button" class="col-span-2 mb-1 w-full bg-blue-600 text-gray-200 rounded hover:bg-blue-500 px-4 py-2 focus:outline-none">添加</button>   
 </div>
 
-
 </div>
+<!--添加链接end-->
 
-
-
+<!--最近的链接-->
 <div class="bg-white dark:bg-black p-2 sm:p-6 mt-9">
 <h2 class="flex items-center text-xl font-medium text-gray-800 capitalize dark:text-white md:text-2xl"><svg class="w-6 h-6 inline text-blue-700 mr-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>最近添加</h2>
 <div class="grid grid-cols-2 gap-4 mt-3" x-init="fetch('<?php echo siteurl; ?>/api/links.php?num=8').then(data => data.json()).then(data=>{
@@ -65,5 +65,7 @@ a=data;
 </template>
 
 </div>
-</div></div>
+</div>
+<!--最近的链接-->
+</div>
 <?php include('footer.php') ?>

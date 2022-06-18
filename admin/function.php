@@ -16,6 +16,10 @@ reurl(siteurl.'/admin/index.php');
 }
 
 
+function avatar($mail){
+    return 'https://cravatar.cn/avatar/'.md5($mail).'?s=200';
+}
+
 function reurl($url){
 header("Location: ".$url); 
 //确保重定向后，后续代码不会被执行 

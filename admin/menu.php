@@ -53,19 +53,19 @@
             <!-- Dropdown toggle button -->
             <button class="relative z-10 block p-2 flex items-center" aria-label="toggle profile dropdown" @click="profilemenu=!profilemenu">
                             <div class="w-8 h-8 overflow-hidden border-2 border-gray-400 rounded-full">
-                                <img src="<?php echo tx;?>">
+                                <img :src="myavatar">
                             </div>
 
-                            <h3 class="mx-2 text-sm font-medium dark:text-gray-200 md:hidden"><?php echo screenName;?></h3>
+                            <h3 class="mx-2 text-sm font-medium dark:text-gray-200 md:hidden" x-text="myname"></h3>
             </button>
 
             <!-- Dropdown menu -->
             <div class="absolute left-0 sm:left-auto sm:right-0 z-20 w-56 py-2 mt-2 bg-white rounded-md shadow-xl dark:bg-gray-800 hidden break-all" :class="{'hidden':!profilemenu}">
             <div class="flex items-center p-3 -mt-2 text-sm text-gray-600 transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
-                    <img class="flex-shrink-0 object-cover mx-1 rounded-full w-9 h-9" src="<?php echo tx;?>" alt="jane avatar">
+                    <img class="flex-shrink-0 object-cover mx-1 rounded-full w-9 h-9" :src="myavatar" alt="my avatar">
                     <div class="mx-1">
-                        <h1 class="text-sm font-semibold text-gray-700 dark:text-gray-200"><?php echo screenName;?></h1>
-                        <p class="text-sm text-gray-500 dark:text-gray-400"><?php echo mail;?></p>
+                        <h1 class="text-sm font-semibold text-gray-700 dark:text-gray-200" x-text="myname"></h1>
+                        <p class="text-sm text-gray-500 dark:text-gray-400" x-text="mymail"></p>
                     </div>
                 </div>
 
