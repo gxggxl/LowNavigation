@@ -104,10 +104,7 @@ $n++;
 
 <div class="grid grid-cols-2 gap-4 mt-3" x-data="{dragging: null, dropping: null, timer: null}" @drop.prevent="if(dragging !== null && dropping !== null){if(dragging < dropping) a = [...a.slice(0, dragging), ...a.slice(dragging + 1, dropping + 1), a[dragging], ...a.slice(dropping + 1)]; else a = [...a.slice(0, dropping), a[dragging], ...a.slice(dropping, dragging), ...a.slice(dragging + 1)]}; dropping = null;" 
 @dragover.prevent="$event.dataTransfer.dropEffect = 'move'"
-@dragend.prevent="fetch('<?php echo siteurl; ?>/admin/api.php?link='+JSON.stringify(a),
-    {credentials: 'same-origin',
-    headers: {'content-type': 'application/json'},
-method: 'POST',}).then(data => data.json()).then(data => {if(data.status=='-1'){Notifications(data.info,'error');}});"
+@dragend.prevent="fetch('<?php echo siteurl; ?>/admin/api.php?link='+JSON.stringify(a),{method: 'POST',}).then(data => data.json()).then(data => {if(data.status=='-1'){Notifications(data.info,'error');}});"
 x-init="fetch('<?php echo siteurl; ?>/api/links.php').then(data => data.json()).then(data=>{
 a=data;
 });"> 
