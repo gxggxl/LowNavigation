@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="zh-CN" x-data="{api:'<?php echo $setting['siteurl'] ?>/api/',all:'',setting:''}" 
-x-init="fetch(api+'?all').then(data => data.json()).then(data=>{
+x-init="fetch(api+'?type=all').then(data => data.json()).then(data=>{
 all=data;setting=all.setting;
 });"
 >
@@ -28,9 +28,6 @@ all=data;setting=all.setting;
    
 
 <template x-for="(fenlei,index) in all.cate">  
-
-
-
 <section class="py-3 sm:py-6" :class="{'bg-white dark:bg-gray-900':index%2==0,'bg-gray-50 dark:bg-gray-700':index%2!=0}" x-cloak>
         <div class="container flex flex-col items-center px-4 py-6 sm:py-12 mx-auto">
             <h2 class="text-3xl font-semibold tracking-tight text-gray-700 sm:text-4xl dark:text-white" x-text="fenlei.name">
@@ -53,12 +50,7 @@ x-init="fetch(api+'links.php?mid='+fenlei.mid).then(data => data.json()).then(da
 </div>
             </div>
         </div>
-    </section>
-
-
-
-
-
+</section>
 </template>  
 
   
