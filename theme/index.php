@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-CN" x-data="{api:'<?php echo $setting['siteurl'] ?>/api/',all:'',setting:''}" 
+<html lang="zh-CN" x-data="{api:'<?php echo $setting['siteurl'] ?>/api/',all:'',setting:'',search:'',url:''}" 
 x-init="fetch(api+'?type=all').then(data => data.json()).then(data=>{
 all=data;setting=all.setting;
 });"
@@ -10,7 +10,8 @@ all=data;setting=all.setting;
   <title><?php echo $setting['sitename'].' - '. $setting['sitedis']; ?></title>
  <link rel="apple-touch-icon" href="./favicon.webp">
  <link rel="icon" href="./favicon.webp">
- <link href="./theme/output.css?2020" rel="stylesheet">
+ <link href="./theme/output.css?202006" rel="stylesheet">
+ <!--<script src="./3.0.24.js" defer></script>-->
 </head>
 <body class="bg-white dark:bg-gray-900">
 <nav class="bg-white shadow dark:bg-gray-800 fixed inset-x-0 z-30" x-data="{menu:false}">
@@ -24,22 +25,32 @@ all=data;setting=all.setting;
         </div>
     </nav>
     
-<div class="pt-20"></div>
+<div class="bg-gray-50 dark:bg-gray-700 pt-24 pb-10">
+<div class="max-w-screen-md px-4 py-6 mx-auto">
+<!-- Right -->
+<div class="bg-white dark:bg-gray-900 rounded border border-gray-200 dark:border-gray-600 flex items-center justify-between">
+    <input type="text" x-model="search" placeholder="请输入搜索内容" class="bg-transparent py-1 text-gray-600 dark:text-gray-200 px-4 focus:outline-none flex-grow" />
+<a :href="url" x-effect="if(search){url='https://www.baidu.com/s?ie=UTF-8&wd='+search;}else{url=''}" class="hidden" x-ref="baidu" target="_blank"></a>
+<button class="py-2 px-4 bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-200 rounded-r border-l border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-900 active:bg-gray-200 dark:active:bg-black disabled:opacity-50 inline-flex items-center focus:outline-none" @click="if(search){$refs.baidu.click();}">搜索</button>
+</div>    
+     
+</div>   
+</div>
    
 
 <template x-for="(fenlei,index) in all.cate">  
 <section class="py-3 sm:py-6" :class="{'bg-white dark:bg-gray-900':index%2==0,'bg-gray-50 dark:bg-gray-700':index%2!=0}" x-cloak>
-        <div class="container flex flex-col items-center px-4 py-6 sm:py-12 mx-auto">
-            <h2 class="text-3xl font-semibold tracking-tight text-gray-700 sm:text-4xl dark:text-white" x-text="fenlei.name">
-            </h2>
-<p class="mx-auto leading-relaxed text-base text-center pt-2 text-gray-600 dark:text-gray-400" x-text="fenlei.slug"></p>
-            <div class="mt-6 w-full">
+        <div class="container flex flex-col px-4 py-6 mx-auto">
+            
+<h3 class="text-lg font-semibold text-gray-800 dark:text-white capitalize border-b-2 border-gray-100 dark:border-gray-800 pb-1 mb-5 flex flex-row items-center"><svg class="w-5 h-5 inline text-blue-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg><span x-text="fenlei.name"></span></h3>
+
+            <div class="w-full">
 <div class="flex flex-wrap -m-2" x-data="{link:''}" 
 x-init="fetch(api+'links.php?mid='+fenlei.mid).then(data => data.json()).then(data=>{link=data;});">
 <template x-for="(item,index) in link">
 <div class="p-2 lg:w-1/3 md:w-1/2 w-full">
-    <a :href="item.site" class="h-full bg-white dark:bg-gray-900 flex items-center border-gray-100 dark:border-gray-600 border p-4 rounded-lg hover:shadow-md duration-300" target="_blank">
-        <img :alt="item.name" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" :src="'https://zezeshe.com/api/ico/?url='+item.site">
+    <a :href="item.site" class="h-full bg-white dark:bg-gray-900 flex items-center border-gray-100 dark:border-gray-600 border p-3 rounded hover:shadow-md duration-300" target="_blank">
+        <img :alt="item.name" class="w-10 h-10 lg:w-12 lg:h-12 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" :src="'https://zezeshe.com/api/ico/?url='+item.site">
         <div class="flex-grow">
             <h2 class="text-gray-700 dark:text-gray-200 title-font font-medium" x-text="item.name"></h2>
             <p class="text-gray-500 line-1" x-text="item.dis"></p>
@@ -72,28 +83,18 @@ x-init="fetch(api+'links.php?mid='+fenlei.mid).then(data => data.json()).then(da
                     </p>
 
                     <div class="flex items-center mt-6 -mx-2">
-                        <a class="mx-2" href="#" aria-label="Twitter">
-                            <svg class="w-5 h-5 text-gray-700 fill-current dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                                <path d="M492 109.5c-17.4 7.7-36 12.9-55.6 15.3 20-12 35.4-31 42.6-53.6-18.7 11.1-39.4 19.2-61.5 23.5C399.8 75.8 374.6 64 346.8 64c-53.5 0-96.8 43.4-96.8 96.9 0 7.6.8 15 2.5 22.1-80.5-4-151.9-42.6-199.6-101.3-8.3 14.3-13.1 31-13.1 48.7 0 33.6 17.2 63.3 43.2 80.7-16-.4-31-4.8-44-12.1v1.2c0 47 33.4 86.1 77.7 95-8.1 2.2-16.7 3.4-25.5 3.4-6.2 0-12.3-.6-18.2-1.8 12.3 38.5 48.1 66.5 90.5 67.3-33.1 26-74.9 41.5-120.3 41.5-7.8 0-15.5-.5-23.1-1.4C62.8 432 113.7 448 168.3 448 346.6 448 444 300.3 444 172.2c0-4.2-.1-8.4-.3-12.5C462.6 146 479 129 492 109.5z"></path>
-                            </svg>
+                        <a class="mx-2" href="https://www.bilibili.com/video/BV1pT411G7iY" aria-label="Twitter">
+                            <svg class="w-5 h-5 text-gray-700 fill-current dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1672"><path d="M306.005333 117.632L444.330667 256h135.296l138.368-138.325333a42.666667 42.666667 0 0 1 60.373333 60.373333L700.330667 256H789.333333A149.333333 149.333333 0 0 1 938.666667 405.333333v341.333334a149.333333 149.333333 0 0 1-149.333334 149.333333h-554.666666A149.333333 149.333333 0 0 1 85.333333 746.666667v-341.333334A149.333333 149.333333 0 0 1 234.666667 256h88.96L245.632 177.962667a42.666667 42.666667 0 0 1 60.373333-60.373334zM789.333333 341.333333h-554.666666a64 64 0 0 0-63.701334 57.856L170.666667 405.333333v341.333334a64 64 0 0 0 57.856 63.701333L234.666667 810.666667h554.666666a64 64 0 0 0 63.701334-57.856L853.333333 746.666667v-341.333334A64 64 0 0 0 789.333333 341.333333zM341.333333 469.333333a42.666667 42.666667 0 0 1 42.666667 42.666667v85.333333a42.666667 42.666667 0 0 1-85.333333 0v-85.333333a42.666667 42.666667 0 0 1 42.666666-42.666667z m341.333334 0a42.666667 42.666667 0 0 1 42.666666 42.666667v85.333333a42.666667 42.666667 0 0 1-85.333333 0v-85.333333a42.666667 42.666667 0 0 1 42.666667-42.666667z" p-id="1673"></path></svg>
                         </a>
                     
-                        <a class="mx-2" href="#" aria-label="Facebook">
-                            <svg class="w-5 h-5 text-gray-700 fill-current dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                                <path d="M426.8 64H85.2C73.5 64 64 73.5 64 85.2v341.6c0 11.7 9.5 21.2 21.2 21.2H256V296h-45.9v-56H256v-41.4c0-49.6 34.4-76.6 78.7-76.6 21.2 0 44 1.6 49.3 2.3v51.8h-35.3c-24.1 0-28.7 11.4-28.7 28.2V240h57.4l-7.5 56H320v152h106.8c11.7 0 21.2-9.5 21.2-21.2V85.2c0-11.7-9.5-21.2-21.2-21.2z"></path>
-                            </svg>
-                        </a>
-                    
-                        <a class="mx-2" href="#" aria-label="Linkden">
-                            <svg class="w-5 h-5 text-gray-700 fill-current dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                                <path d="M417.2 64H96.8C79.3 64 64 76.6 64 93.9V415c0 17.4 15.3 32.9 32.8 32.9h320.3c17.6 0 30.8-15.6 30.8-32.9V93.9C448 76.6 434.7 64 417.2 64zM183 384h-55V213h55v171zm-25.6-197h-.4c-17.6 0-29-13.1-29-29.5 0-16.7 11.7-29.5 29.7-29.5s29 12.7 29.4 29.5c0 16.4-11.4 29.5-29.7 29.5zM384 384h-55v-93.5c0-22.4-8-37.7-27.9-37.7-15.2 0-24.2 10.3-28.2 20.3-1.5 3.6-1.9 8.5-1.9 13.5V384h-55V213h55v23.8c8-11.4 20.5-27.8 49.6-27.8 36.1 0 63.4 23.8 63.4 75.1V384z"></path>
-                            </svg>
-                        </a>
-                    
-                        <a class="mx-2" href="#" aria-label="Github">
+                        <a class="mx-2" href="https://github.com/jrotty/LowNavigation" aria-label="Github">
                             <svg class="w-5 h-5 text-gray-700 fill-current dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                                 <path d="M256 32C132.3 32 32 134.9 32 261.7c0 101.5 64.2 187.5 153.2 217.9 1.4.3 2.6.4 3.8.4 8.3 0 11.5-6.1 11.5-11.4 0-5.5-.2-19.9-.3-39.1-8.4 1.9-15.9 2.7-22.6 2.7-43.1 0-52.9-33.5-52.9-33.5-10.2-26.5-24.9-33.6-24.9-33.6-19.5-13.7-.1-14.1 1.4-14.1h.1c22.5 2 34.3 23.8 34.3 23.8 11.2 19.6 26.2 25.1 39.6 25.1 10.5 0 20-3.4 25.6-6 2-14.8 7.8-24.9 14.2-30.7-49.7-5.8-102-25.5-102-113.5 0-25.1 8.7-45.6 23-61.6-2.3-5.8-10-29.2 2.2-60.8 0 0 1.6-.5 5-.5 8.1 0 26.4 3.1 56.6 24.1 17.9-5.1 37-7.6 56.1-7.7 19 .1 38.2 2.6 56.1 7.7 30.2-21 48.5-24.1 56.6-24.1 3.4 0 5 .5 5 .5 12.2 31.6 4.5 55 2.2 60.8 14.3 16.1 23 36.6 23 61.6 0 88.2-52.4 107.6-102.3 113.3 8 7.1 15.2 21.1 15.2 42.5 0 30.7-.3 55.5-.3 63 0 5.4 3.1 11.5 11.4 11.5 1.2 0 2.6-.1 4-.4C415.9 449.2 480 363.1 480 261.7 480 134.9 379.7 32 256 32z"></path>
                             </svg>
+                        </a>
+                    
+                        <a class="mx-2" href="https://tailwindcss.com/" aria-label="Facebook">
+                            <svg class="w-5 h-5 text-gray-700 fill-current dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2095"><path d="M512.042667 204.8c-136.533333 0-221.866667 68.266667-256 204.8 51.2-68.266667 110.933333-93.866667 179.2-76.8 38.954667 9.728 66.773333 37.973333 97.621333 69.290667C583.082667 453.034667 641.152 512 768.042667 512c136.533333 0 221.866667-68.266667 256-204.8-51.2 68.266667-110.933333 93.866667-179.2 76.8-38.954667-9.728-66.773333-37.973333-97.621334-69.290667C697.045333 263.765333 638.976 204.8 512.042667 204.8z m-256 307.2c-136.533333 0-221.866667 68.266667-256 204.8 51.2-68.266667 110.933333-93.866667 179.2-76.8 38.954667 9.728 66.773333 37.973333 97.621333 69.290667 50.218667 50.944 108.288 109.909333 235.178667 109.909333 136.533333 0 221.866667-68.266667 256-204.8-51.2 68.266667-110.933333 93.866667-179.2 76.8-38.954667-9.728-66.773333-37.973333-97.621334-69.290667C441.045333 570.965333 382.976 512 256.042667 512z" p-id="2096"></path></svg>
                         </a>
                     </div>
                 </div>
@@ -116,9 +117,9 @@ x-init="fetch(api+'links.php?mid='+fenlei.mid).then(data => data.json()).then(da
             <p class="text-sm text-gray-400">© Copyright 2022. All Rights Reserved.</p>
 
             <div class="flex mt-3 -mx-2 sm:mt-0">
-                <a href="https://blog.zezeshe.com/about.html" class="mx-2 text-sm text-gray-400 hover:text-gray-300" aria-label="about"> About </a>
+                <a href="https://blog.zezeshe.com/about.html" class="mx-2 text-sm text-gray-400 hover:text-gray-300" aria-label="about" target="_blank"> About </a>
 
-                <a href="https://blog.zezeshe.com/" class="mx-2 text-sm text-gray-400 hover:text-gray-300" aria-label="blog"> Blog </a>
+                <a href="https://blog.zezeshe.com/" class="mx-2 text-sm text-gray-400 hover:text-gray-300" aria-label="blog" target="_blank"> Blog </a>
 
             </div>
             </div>
