@@ -61,7 +61,7 @@ unlink($name);
 <!--备份-->
 <div class="bg-white dark:bg-black p-2 sm:p-6 mt-9"> 
 <h2 class="flex items-center text-xl font-medium text-gray-800 capitalize dark:text-white md:text-2xl"><svg class="w-6 h-6 inline text-blue-700 mr-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>备份</h2>
-<p class="mt-2"> 点击备份后将自动下载backup.json文件，文件内包含分类信息与链接信息！ </p>
+<p class="mt-2 text-gray-800 dark:text-gray-200"> 点击备份后将自动下载backup.json文件，文件内包含分类信息与链接信息！ </p>
 
 <div class="mt-4">
 
@@ -78,7 +78,7 @@ unlink($name);
 <!--恢复-->
 <div class="bg-white dark:bg-black p-2 sm:p-6 mt-9"> 
 <h2 class="flex items-center text-xl font-medium text-gray-800 capitalize dark:text-white md:text-2xl"><svg class="w-6 h-6 inline text-blue-700 mr-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>恢复</h2>
-<p class="mt-2">选择之前备份好的json文件，然后点击下方按钮进行恢复。【注：恢复数据会覆盖掉当前网站上的分类与链接】</p>
+<p class="mt-2 text-gray-800 dark:text-gray-200">选择之前备份好的json文件，然后点击下方按钮进行恢复。【注：恢复数据会覆盖掉当前网站上的分类与链接】</p>
 
 <div class="mt-4">
 <form action="<?php echo siteurl; ?>/admin/backup.php?up" method="post" enctype="multipart/form-data">
