@@ -18,7 +18,7 @@ $res = array_values(array_filter($links,'filter'))[0];
 ?>
 
 
-<?php include('header.php') ?>
+<?php $title="管理链接"; include('header.php') ?>
 <?php include('menu.php') ?>
 
 <div class="container mx-auto px-2 sm:px-6" x-data="{a:''}">

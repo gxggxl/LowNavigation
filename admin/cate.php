@@ -13,7 +13,7 @@ $res = array_values(array_filter($fenlei,'filter'))[0];
 ?>
 
 
-<?php include('header.php') ?>
+<?php $title="分类管理"; include('header.php') ?>
 <?php include('menu.php') ?>
 
 <div class="container mx-auto px-2 sm:px-6" x-data="{a:[]}" 

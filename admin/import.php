@@ -87,7 +87,7 @@ function ReadCsv($uploadfile='')
 
 
 
-<?php include('header.php') ?>
+<?php $title="导入"; include('header.php') ?>
 <?php include('menu.php') ?>
 
 <div class="container mx-auto px-2 sm:px-6">

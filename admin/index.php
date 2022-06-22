@@ -1,6 +1,6 @@
 <?php include('function.php') ?>
 <?php if(!haslogin()){reurl(siteurl.'/admin/login.php');} ?>
-<?php include('header.php') ?>
+<?php $title="概要"; include('header.php') ?>
 <?php include('menu.php') ?>
 
 <div class="container mx-auto px-2 sm:px-6">

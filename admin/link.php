@@ -3,7 +3,7 @@
 $catepath='../config/cate.php';
 require_once($catepath);//载入分类数组
 ?>
-<?php include('header.php') ?>
+<?php $title="添加链接"; include('header.php') ?>
 <?php include('menu.php') ?>
 
 <div class="container mx-auto px-2 sm:px-6" x-data="{a:''}">

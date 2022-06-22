@@ -17,7 +17,7 @@ if(!empty($pass['pass'])&&$pass['pass']==$password&&!empty($pass['username'])&&$
 }else{ 
 $tixing='<span class="text-xs text-center text-gray-500 uppercase dark:text-gray-400 hover:underline">请在下方填写用户名与密码</span>';
  if (!empty($pass['pass'])||!empty($pass['username'])) {$tixing='<span class="text-xs text-center text-red-500 uppercase dark:text-gray-400 hover:underline">用户名或密码错误！</span>';}
-include('header.php');
+$title="登录"; include('header.php');
 ?>
 <div class="pt-16">
     <div class="flex  max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 lg:max-w-4xl">

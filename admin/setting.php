@@ -9,7 +9,7 @@ require_once($path);
 
 
 
-<?php include('header.php') ?>
+<?php $title="设置"; include('header.php') ?>
 <?php include('menu.php') ?>
 
 <div class="container mx-auto px-2 sm:px-6">

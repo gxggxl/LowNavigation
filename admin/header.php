@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,user-scalable=no,viewport-fit=cover,initial-scale=1">
-  <title><?php echo sitename; ?><?php echo ' - '.sitedis; ?></title>
+  <title><?php echo $title; ?> - <?php echo sitename; ?><?php echo ' - '.sitedis; ?></title>
  <link rel="apple-touch-icon" href="../favicon.webp">
  <link rel="icon" href="../favicon.webp">
  <link href="./output.css?20220622" rel="stylesheet">
