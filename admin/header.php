@@ -6,23 +6,8 @@
   <title><?php echo sitename; ?><?php echo ' - '.sitedis; ?></title>
  <link rel="apple-touch-icon" href="../favicon.webp">
  <link rel="icon" href="../favicon.webp">
- <link href="./output.css?202206" rel="stylesheet">
-<style>[x-cloak] { display: none !important; }
-.line-1 {
-    word-break: break-all;
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
-}
-.line-2 {
-    word-break: break-all;
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-}
-</style>
+ <link href="./output.css?20220622" rel="stylesheet">
+<!--<script src="../3.0.24.js" defer></script>-->
 </head>
 <!--获取用户信息昵称邮箱头像-->
 <body class="relative min-h-full bg-gray-100 dark:bg-gray-800"

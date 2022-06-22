@@ -1,11 +1,6 @@
 <?php include('function.php') ?>
 <?php if(!haslogin()){reurl(siteurl.'/admin/login.php');} ?>
 <?php 
-//设置时区，否则文章的发布时间会查8H
-date_default_timezone_set('PRC');
-$path='../config/config.php';
-require_once($path);
-
 $tishi='';
 $post=$_REQUEST;
 //导入处理
@@ -32,12 +27,12 @@ if(!addlink($value)){
     $t=$t.$value['name'].'->导入完成！<br>';
 }
 }
-$tishi=$t;
+$tishi=alerts('Success',$t.'全部导入完成，请等待页面跳转！', siteurl.'/admin/import.php');;
 unlink($path.'/'.$name);
 
-}else{$tishi = '上传失败！';}
+}else{$tishi = alerts('Error','上传失败，请检查文件权限！');}
 
-}else{$tishi = '文件格式不正确！';}
+}else{$tishi = alerts('info','文件格式不正确，请重新选择！');}
 
 
 
@@ -97,7 +92,7 @@ function ReadCsv($uploadfile='')
 
 <div class="container mx-auto px-2 sm:px-6">
 
-
+<?php echo $tishi; ?>
 
 <!--导入-->
 <div class="bg-white dark:bg-black p-2 sm:p-6 mt-9"> 
@@ -107,10 +102,9 @@ function ReadCsv($uploadfile='')
 <div class="mt-4">
 <form action="<?php echo siteurl; ?>/admin/import.php?up" method="post" enctype="multipart/form-data">
 <input type="file" name="up"  accept="text/csv" class="w-full text-gray-700 px-3 py-2 border rounded">
-<button type="submit" class="mt-2 px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">保存</button>
+<button type="submit" class="mt-4 px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">导入</button>
 </form>
 
-<p><?php echo $tishi; ?></p>
             </div>
 </div>
 

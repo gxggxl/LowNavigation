@@ -188,7 +188,13 @@ echo json_encode($profile);
 exit;   
 }
 
-
+//备份链接与分类信息成json
+if(!empty($post['backup'])){
+$backup['cate']=$fenlei;
+$backup['links']=$links;   
+echo json_encode($backup);
+exit;
+}
 
 
 function notice($info,$type='-1'){

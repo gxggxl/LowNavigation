@@ -37,6 +37,8 @@
 
             <!-- Dropdown menu -->
             <div x-show="open" x-transition class="absolute right-0 z-20 w-28 py-2 mt-2 bg-white rounded-md shadow-md dark:bg-gray-800">
+            <a href="<?php echo siteurl; ?>/admin/backup.php" class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"> 备份与恢复 </a>
+                
             <a href="<?php echo siteurl; ?>/admin/import.php" class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"> 批量导入 </a>
             </div>
         </div>
