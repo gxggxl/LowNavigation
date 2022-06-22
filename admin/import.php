@@ -100,7 +100,7 @@ function ReadCsv($uploadfile='')
 
 
 <!--导入-->
-<div class="bg-white dark:bg-black p-2 sm:p-6 mt-9" x-data="{mail:'<?php echo $profile['mail']; ?>',screenName:'<?php echo $profile['screenName']; ?>',}"> 
+<div class="bg-white dark:bg-black p-2 sm:p-6 mt-9"> 
 <h2 class="flex items-center text-xl font-medium text-gray-800 capitalize dark:text-white md:text-2xl"><svg class="w-6 h-6 inline text-blue-700 mr-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>批量导入</h2>
 <p class="mt-2">请使用wps将excel的前4列，列名分别设置为name，dis，site，mid，对应的列内容为网站名字，网站描述，网站地址，分类mid，其中网站描述列内容可以为空，然后导出csv，最后将csv在这里上传即可！【注意：批量导入不会检查重复项，建议导入前使用excel去重】</p>
 
