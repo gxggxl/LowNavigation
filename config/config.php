@@ -3,6 +3,7 @@
   'siteurl' => '',
   'sitedis' => '一个代码写的比较Low的导航程序',
   'sitename' => '低端导航',
+  'keyword' => '低端导航,php导航程序,php导航',
 );
  $profile= array (
   'screenName' => 'admin',
