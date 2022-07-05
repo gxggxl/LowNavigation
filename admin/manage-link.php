@@ -27,20 +27,20 @@ $res = array_values(array_filter($links,'filter'))[0];
 <h2 class="flex items-center text-xl font-medium text-gray-800 capitalize dark:text-white md:text-2xl"><svg class="w-6 h-6 inline text-blue-700 mr-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>修改链接信息</h2>
 <div class="grid grid-cols-2 gap-4 mt-3"> 
 <div>
-<label class="text-gray-700 dark:text-gray-200">站名</label>
-<input x-model="name" type='url' name="name" placeholder="请输入网站名字" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+<label for="name" class="text-gray-700 dark:text-gray-200">站名</label>
+<input id="name" x-model="name" type='url' name="name" placeholder="请输入网站名字" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
 </div>
 <div>
-<label class="text-gray-700 dark:text-gray-200">网站描述</label>
-<input x-model="dis" type='text' name="dis" placeholder="请输入网站描述" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+<label for="des" class="text-gray-700 dark:text-gray-200">网站描述</label>
+<input id="des" x-model="dis" type='text' name="dis" placeholder="请输入网站描述" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
 </div>
 <div>
-<label class="text-gray-700 dark:text-gray-200">网站地址</label>
-<input x-model="site" type='text' name="site" placeholder="请输入网站地址" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+<label for="site" class="text-gray-700 dark:text-gray-200">网站地址</label>
+<input id="site" x-model="site" type='text' name="site" placeholder="请输入网站地址" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
 </div>
 <div>
-<label class="text-gray-700 dark:text-gray-200">网站分类</label>
-<select  x-model="mid" name="mid" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" aria-label="Default select example">
+<label for="mid" class="text-gray-700 dark:text-gray-200">网站分类</label>
+<select id="mid" x-model="mid" name="mid" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" aria-label="Default select example">
 <?php 
 $n=0;
 foreach ($fenlei as &$fl) {$s='';
