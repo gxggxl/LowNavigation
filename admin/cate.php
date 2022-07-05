@@ -21,12 +21,12 @@ x-init="fetch('<?php echo siteurl; ?>/api/?type=cate').then(data => data.json())
 
 <div x-data="{name:'<?php if(!empty($res)){echo $res['name'];} ?>',slug:'<?php if(!empty($res)){echo $res['slug'];} ?>'}" class="grid grid-cols-2 gap-4 bg-white dark:bg-black p-2 sm:p-6 mt-9"> 
 <div>
-<label class="text-gray-700 dark:text-gray-200">分类名</label>
-<input x-model="name" type='text' name="name" placeholder="请输入分类名字" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+<label for="catename" class="text-gray-700 dark:text-gray-200">分类名</label>
+<input id="catename" x-model="name" type='text' name="name" placeholder="请输入分类名字" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
 </div>
 <div>
-<label class="text-gray-700 dark:text-gray-200">分类缩略名</label>
-<input x-model="slug" type='text' name="slug" placeholder="请输入缩略名" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+<label for="cateslug" class="text-gray-700 dark:text-gray-200">分类缩略名</label>
+<input id="cateslug" x-model="slug" type='text' name="slug" placeholder="请输入缩略名" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
 </div>
 <button @click="if(name&&slug){
 fetch('<?php echo siteurl; ?>/admin/api.php?name='+name+'&slug='+slug<?php if(!empty($get['edit'])){ echo '+\'&edit='.$get['edit'].'\''; }else{echo '+\'&addcate=true\'';} ?>,{method: 'POST',}).then(data => data.json()).then(data => {if(data.status=='-1'){Notifications(data.info,'error');}else{a=data;name='';slug='';<?php if(!empty($get['edit'])): ?>Notifications('分类修改完成！');setTimeout('location.replace(\'<?php echo siteurl; ?>/admin/cate.php\')', 1050);<?php else: ?>Notifications('分类创建完成！');<?php endif; ?>
