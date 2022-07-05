@@ -8,10 +8,15 @@ all=data;setting=all.setting;
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,user-scalable=no,viewport-fit=cover,initial-scale=1">
   <title><?php echo $setting['sitename'].' - '. $setting['sitedis']; ?></title>
- <link rel="apple-touch-icon" href="./favicon.webp">
- <link rel="icon" href="./favicon.webp">
- <link href="./theme/output.css?202006" rel="stylesheet">
- <!--<script src="./3.0.24.js" defer></script>-->
+  <meta name="title" content="<?php echo $setting['sitename']; ?>">
+  <meta name="description" content="<?php echo $setting['sitedis']; ?>"/>
+  <meta name="keywords" content="<?php echo $setting['keyword']; ?>"/>
+
+  <link rel="dns-prefetch" href="//cdn.staticfile.org"/> 
+  <link rel="apple-touch-icon" href="./favicon.webp">
+  <link rel="icon" href="./favicon.webp">
+  <link href="./theme/output.css?202006" rel="stylesheet">
+  <!--<script src="./3.0.24.js" defer></script>-->
 </head>
 <body class="bg-white dark:bg-gray-900">
 <nav class="bg-white shadow dark:bg-gray-800 fixed inset-x-0 z-30" x-data="{menu:false}">
