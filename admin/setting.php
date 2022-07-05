@@ -24,20 +24,20 @@ require_once($path);
 
 <div class="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
                 <div>
-                    <label class="text-gray-700 dark:text-gray-200" for="username">网站地址</label>
-                    <input x-model="siteurl" name="siteurl" type="url" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
+                    <label class="text-gray-700 dark:text-gray-200" for="siteurl">网站地址</label>
+                    <input id="siteurl" x-model="siteurl" name="siteurl" type="url" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
                 </div>
                 <div>
-                    <label class="text-gray-700 dark:text-gray-200" for="username">网站名</label>
-                    <input  x-model="sitename" name="sitename" type="text" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
+                    <label class="text-gray-700 dark:text-gray-200" for="sitename">网站名</label>
+                    <input id="sitename" x-model="sitename" name="sitename" type="text" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
                 </div>
                 <div>
-                    <label class="text-gray-700 dark:text-gray-200" for="username">网站描述</label>
-                    <input  x-model="sitedis" name="sitedis" type="text" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
+                    <label class="text-gray-700 dark:text-gray-200" for="sitedis">网站描述</label>
+                    <input id="sitedis" x-model="sitedis" name="sitedis" type="text" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
                 </div>
                 <div>
                     <label class="text-gray-700 dark:text-gray-200" for="keyword">网站关键词</label>
-                    <input  x-model="keyword" name="keyword" type="text" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
+                    <input id="keyword" x-model="keyword" name="keyword" type="text" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
                 </div>
             </div>
 
@@ -69,12 +69,12 @@ fetch('<?php echo siteurl; ?>/admin/api.php?sitename='+sitename+'&sitedis='+site
 
 <div class="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
                 <div>
-                    <label class="text-gray-700 dark:text-gray-200" for="username">昵称</label>
-                    <input x-model="screenName" name="screenName" type="text" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
+                    <label class="text-gray-700 dark:text-gray-200" for="screenName">昵称</label>
+                    <input id="screenName" x-model="screenName" name="screenName" type="text" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
                 </div>
                 <div>
-                    <label class="text-gray-700 dark:text-gray-200" for="username">邮箱</label>
-                    <input x-model="mail" name="mail" type="mail" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
+                    <label class="text-gray-700 dark:text-gray-200" for="mail">邮箱</label>
+                    <input id="mail" x-model="mail" name="mail" type="mail" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
                 </div>
             </div>
 
@@ -92,15 +92,15 @@ fetch('<?php echo siteurl; ?>/admin/api.php?screenName='+screenName+'&mail='+mai
 <div class="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
                 <div>
                     <label class="text-gray-700 dark:text-gray-200" for="username">登录用户名</label>
-                    <input x-model="username" name="username" type="text" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
+                    <input id="username" x-model="username" name="username" type="text" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
                 </div>
                 <div>
                     <label class="text-gray-700 dark:text-gray-200" for="password">密码</label>
-                    <input  x-model="password" name="password" type="password" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
+                    <input id="password" x-model="password" name="password" type="password" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
                 </div>
                 <div>
                     <label class="text-gray-700 dark:text-gray-200" for="confirm">重复密码</label>
-                    <input  x-model="confirm" name="confirm" type="password" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
+                    <input id="confirm" x-model="confirm" name="confirm" type="password" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
                 </div>
             </div>
 
