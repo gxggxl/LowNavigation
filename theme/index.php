@@ -17,6 +17,7 @@ all=data;setting=all.setting;
   <link rel="icon" href="./favicon.webp">
   <link href="./theme/output.css?202006" rel="stylesheet">
   <!--<script src="./3.0.24.js" defer></script>-->
+  <?php echo $setting['tongji']; ?>
 </head>
 <body class="bg-white dark:bg-gray-900">
 <nav class="bg-white shadow dark:bg-gray-800 fixed inset-x-0 z-30" x-data="{menu:false}">
@@ -54,7 +55,7 @@ all=data;setting=all.setting;
 x-init="fetch(api+'links.php?mid='+fenlei.mid).then(data => data.json()).then(data=>{link=data;});">
 <template x-for="(item,index) in link">
 <div class="p-2 lg:w-1/3 md:w-1/2 w-full">
-    <a :href="item.site" class="h-full bg-white dark:bg-gray-900 flex items-center border-gray-100 dark:border-gray-600 border p-3 rounded hover:shadow-md duration-300" target="_blank" :title="item.dis">
+    <a :href="item.site" class="h-full bg-white dark:bg-gray-900 flex items-center border-gray-100 dark:border-gray-600 border p-3 rounded hover:shadow-md duration-300" target="_blank" :title="item.dis" rel="noopener noreferrer">
         <img :alt="item.name" class="w-10 h-10 lg:w-12 lg:h-12 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" :src="'https://zezeshe.com/api/ico/?url='+item.site">
         <div class="flex-grow">
             <h2 class="text-gray-700 dark:text-gray-200 title-font font-medium" x-text="item.name"></h2>
