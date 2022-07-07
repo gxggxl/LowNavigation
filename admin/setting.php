@@ -45,7 +45,7 @@ require_once($path);
             <div class="mt-4">
                     <label class="text-gray-700 dark:text-gray-200" for="tongji">统计代码</label>
                 <textarea id="tongji" x-model="tongji" name="tongji" type="text" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"></textarea>
-                <p class="flex items-center pt-2">
+                <p class="flex items-center pt-2 text-gray-800 dark:text-gray-200">
 指<code class="text-red-500">Html</code>的<code class="text-red-500">head</code>部分放置的内容，一般用来放置<a href="https://invite.51.la/1NJaiBx8?target=V6" target="_blank" rel="noopener noreferrer" class="text-red-500">51LA</a>统计代码，推荐使用<a href="https://invite.51.la/1NJaiBx8?target=V6" target="_blank" rel="noopener noreferrer"><img src="https://sdk.51.la/icon/2-1.png"></a></p>
             </div>
 
