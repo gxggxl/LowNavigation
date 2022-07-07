@@ -1,9 +1,9 @@
+<?php
+include('config/cate.php');//载入分类
+include('config/link.php');//载入链接
+?>
 <!doctype html>
-<html lang="zh-CN" x-data="{api:'<?php echo $setting['siteurl'] ?>/api/',all:'',setting:'',search:'',url:''}" 
-x-init="fetch(api+'?type=all').then(data => data.json()).then(data=>{
-all=data;setting=all.setting;
-});"
->
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,user-scalable=no,viewport-fit=cover,initial-scale=1">
@@ -22,7 +22,7 @@ all=data;setting=all.setting;
 <nav class="bg-white shadow dark:bg-gray-800 fixed inset-x-0 z-30" x-data="{menu:false}">
         <div class="container px-6 py-4 mx-auto md:flex md:justify-between md:items-center">
             <div class="flex items-center justify-between">
-                <div class="flex items-center flex-shrink-0 text-base font-bold text-sky-500 transition-colors duration-200 transform dark:text-white lg:text-xl"><svg class="fill-current h-6 w-6 mr-2" width="54" height="54" viewBox="0 0 54 54" xmlns="http://www.w3.org/2000/svg"><path d="M13.5 22.1c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05zM0 38.3c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05z"></path></svg><span  x-text="setting.sitename"></span>
+                <div class="flex items-center flex-shrink-0 text-base font-bold text-sky-500 transition-colors duration-200 transform dark:text-white lg:text-xl"><svg class="fill-current h-6 w-6 mr-2" width="54" height="54" viewBox="0 0 54 54" xmlns="http://www.w3.org/2000/svg"><path d="M13.5 22.1c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05zM0 38.3c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05z"></path></svg><span><?php echo $setting['sitename']; ?></span>
                 </div>
 
             </div>
@@ -43,31 +43,45 @@ all=data;setting=all.setting;
 </div>
    
 
-<template x-for="(fenlei,index) in all.cate">  
-<section class="py-3 sm:py-6" :class="{'bg-white dark:bg-gray-900':index%2==0,'bg-gray-50 dark:bg-gray-700':index%2!=0}" x-cloak>
+<?php 
+$n=0;
+foreach($fenlei as $value){
+$n++;
+$mid=$value['mid'];
+$name=$value['name'];
+$link=$links;
+foreach ($link as $key => $v) {
+if($v['mid'] != $mid){
+unset($link[$key]);
+}
+}
+$newlinks=$link; 
+?>
+
+<section class="py-3 sm:py-6 <?php if($n%2!=0){echo 'bg-white dark:bg-gray-900';}else{echo 'bg-gray-50 dark:bg-gray-700';} ?>">
         <div class="container flex flex-col px-4 py-6 mx-auto">
             
-<h3 class="text-lg font-semibold text-gray-800 dark:text-white capitalize border-b-2 border-gray-100 dark:border-gray-800 pb-1 mb-5 flex flex-row items-center"><svg class="w-5 h-5 inline text-blue-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg><span x-text="fenlei.name"></span></h3>
+<h3 class="text-lg font-semibold text-gray-800 dark:text-white capitalize border-b-2 border-gray-100 dark:border-gray-800 pb-1 mb-5 flex flex-row items-center"><svg class="w-5 h-5 inline text-blue-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg><span x-text="fenlei.name"><?php echo $name ?></span></h3>
 
             <div class="w-full">
-<div class="flex flex-wrap -m-2" x-data="{link:''}" 
-x-init="fetch(api+'links.php?mid='+fenlei.mid).then(data => data.json()).then(data=>{link=data;});">
-<template x-for="(item,index) in link">
+<div class="flex flex-wrap -m-2">
+<?php foreach($newlinks as $val){ ?>
 <div class="p-2 lg:w-1/3 md:w-1/2 w-full">
-    <a :href="item.site" class="h-full bg-white dark:bg-gray-900 flex items-center border-gray-100 dark:border-gray-600 border p-3 rounded hover:shadow-md duration-300" target="_blank" :title="item.dis">
-        <img :alt="item.name" class="w-10 h-10 lg:w-12 lg:h-12 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" :src="'https://zezeshe.com/api/ico/?url='+item.site">
+    <a href="<?php echo $val['site']; ?>" class="h-full bg-white dark:bg-gray-900 flex items-center border-gray-100 dark:border-gray-600 border p-3 rounded hover:shadow-md duration-300" target="_blank" title="<?php echo $val['dis']; ?>">
+        <img alt="<?php echo $val['name']; ?>" class="w-10 h-10 lg:w-12 lg:h-12 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://zezeshe.com/api/ico/?url=<?php echo $val['site']; ?>">
         <div class="flex-grow">
-            <h2 class="text-gray-700 dark:text-gray-200 title-font font-medium" x-text="item.name"></h2>
-            <p class="text-gray-500 line-1" x-text="item.dis"></p>
+            <h2 class="text-gray-700 dark:text-gray-200 title-font font-medium"><?php echo $val['name']; ?></h2>
+            <p class="text-gray-500 line-1"><?php echo $val['dis']; ?></p>
             </div>
             </a>
     </div>
-</template>
+
+<?php } ?>
 </div>
             </div>
         </div>
 </section>
-</template>  
+<?php } ?>
 
   
 
