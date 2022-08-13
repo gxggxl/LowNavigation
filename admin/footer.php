@@ -3,7 +3,7 @@
         <div class="container px-6 py-8 mx-auto">
 
             <div class="flex flex-col items-center sm:flex-row sm:justify-between">
-            <p class="text-sm text-gray-400">© Copyright 2022. All Rights Reserved. 低端导航版本 1.1.5</p>
+            <p class="text-sm text-gray-400">© Copyright 2022. All Rights Reserved. 低端导航版本 1.2.0</p>
 
             <div class="flex mt-3 -mx-2 sm:mt-0">
                 <a href="https://blog.zezeshe.com/about.html" class="mx-2 text-sm text-gray-400 hover:text-gray-500 dark:hover:text-gray-300" aria-label="about" target="_blank"> About </a>
@@ -36,7 +36,7 @@
 
 
 
-<script src="https://cdn.staticfile.org/alpinejs/3.9.6/cdn.min.js" defer></script>
+<script src="https://cdn.staticfile.org/alpinejs/3.10.3/cdn.min.js" defer></script>
 <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
  <script>
 document.addEventListener('alpine:init', () => {
