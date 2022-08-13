@@ -22,6 +22,13 @@ if(count($Arrzong)){//获取当前数组长度
     
 return $Arrzong;
 }
+//没有设置图标的使用api自动获取
+for($i=0;$i<count($links);$i++){
+if(empty($links[$i]['icon'])){
+$links[$i]['icon']='https://zezeshe.com/api/ico/?url='.$links[$i]['site'];
+}
+}
+
 $newlinks=$links;//没有任何参数时返回默认所有链接
 
 if(!empty($_GET['num'])){//如果有num参数，我们就返回对应最新的num条链接信息
@@ -42,11 +49,7 @@ unset($links[$key]);
 $newlinks=$links;   
 }
 
-for($i=0;$i<count($newlinks);$i++){
-if(empty($newlinks[$i]['icon'])){
-$newlinks[$i]['icon']='https://zezeshe.com/api/ico/?url='.$newlinks[$i]['site'];
-}
-}
+
 
 
 
