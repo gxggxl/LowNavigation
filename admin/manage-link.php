@@ -23,7 +23,7 @@ $res = array_values(array_filter($links,'filter'))[0];
 
 <div class="container mx-auto px-2 sm:px-6" x-data="{a:''}">
 <?php if(!empty($res)): ?>
-<div class="bg-white dark:bg-black p-2 sm:p-6 mt-9" x-data="{name:'<?php echo $res['name']; ?>',dis:'<?php echo $res['dis']; ?>',site:'<?php echo $res['site']; ?>',mid:'<?php echo $res['mid']; ?>',}">
+<div class="bg-white dark:bg-black p-2 sm:p-6 mt-9" x-data="{name:'<?php echo $res['name']; ?>',dis:'<?php echo $res['dis']; ?>',site:'<?php echo $res['site']; ?>',mid:'<?php echo $res['mid']; ?>',icon:'<?php if(isset($res['icon'])){echo $res['icon'];} ?>'}">
 <h2 class="flex items-center text-xl font-medium text-gray-800 capitalize dark:text-white md:text-2xl"><svg class="w-6 h-6 inline text-blue-700 mr-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>修改链接信息</h2>
 <div class="grid grid-cols-2 gap-4 mt-3"> 
 <div>
@@ -51,8 +51,13 @@ $n++;
 <option value="0">回收站</option>
     </select>
 </div>
+<div class="col-span-2">
+<label for="icon" class="text-gray-700 dark:text-gray-200">网站图标地址</label>
+<input id="icon" x-model="icon" type='text' name="icon" placeholder="请输入网站图标地址" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+</div>
+
 <button  @click="if(name&&site&&mid){
-fetch('<?php echo siteurl; ?>/admin/api.php?name='+name+'&dis='+dis+'&site='+site+'&mid='+mid<?php if(!empty($res)){echo "+'&edit=".$res['name']."'";} ?>,{method: 'POST',}).then(data => data.json()).then(data => {if(data.status=='-1'){Notifications(data.info,'error');}else{a=data;name='';dis='';site='';Notifications('链接修改完成！');
+fetch('<?php echo siteurl; ?>/admin/api.php?name='+name+'&dis='+dis+'&site='+encodeURIComponent(site)+'&mid='+mid<?php if(!empty($res)){echo "+'&edit=".$res['name']."'";} ?>+'&icon='+encodeURIComponent(icon),{method: 'POST',}).then(data => data.json()).then(data => {if(data.status=='-1'){Notifications(data.info,'error');}else{a=data;name='';dis='';site='';icon='';Notifications('链接修改完成！');
 }});
 }else{Notifications('站名网址或分类禁止为空！','error');}" type="button" class="col-span-2 mb-1 w-full bg-blue-600 text-gray-200 rounded hover:bg-blue-500 px-4 py-2 focus:outline-none">修改</button>   
 </div>
