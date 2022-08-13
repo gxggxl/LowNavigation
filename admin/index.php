@@ -3,6 +3,28 @@
 <?php $title="概要"; include('header.php') ?>
 <?php include('menu.php') ?>
 
+<?php 
+//1.1.1升级到1.2.0平滑升级处理函数
+$updateinfo='';
+$linkpath='../config/link.php';
+require_once($linkpath);//载入链接数组
+if(!empty($links)&&!isset($links[0]['icon'])){
+foreach ($links as &$fl) {
+$fl['icon']='';
+}unset($fl); 
+if (file_put_contents($linkpath, "<?php\n \$links= ".var_export($links, true).";\n?>")) {
+$links=newlinks($links);
+}
+$updateinfo='<p class="mt-3 text-red-500">1.1.1→1.2.0，平滑升级完成！</p>';
+}
+
+
+
+?>
+
+
+
+
 <div class="container mx-auto px-2 sm:px-6">
 
 
@@ -11,6 +33,7 @@
 <!--介绍-->
 <div class="bg-white dark:bg-black p-2 sm:p-6 mt-9"> 
 <h2 class="flex items-center text-xl font-medium text-gray-800 capitalize dark:text-white md:text-2xl"><svg class="w-6 h-6 inline text-blue-700 mr-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>概要</h2>
+<?php echo $updateinfo; ?>
 <p class="mt-3 text-gray-800 dark:text-gray-200">低端导航是一款基于世界上最好的编程语言PHP开发，致力于做最简洁的导航程序！</p>
 </div>
 <!--介绍end-->
