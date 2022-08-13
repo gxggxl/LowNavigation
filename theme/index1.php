@@ -69,7 +69,10 @@ $newlinks=$link;
 <?php foreach($newlinks as $val){ ?>
 <div class="p-2 lg:w-1/3 md:w-1/2 w-full">
     <a href="<?php echo $val['site']; ?>" class="h-full bg-white dark:bg-gray-900 flex items-center border-gray-100 dark:border-gray-600 border p-3 rounded hover:shadow-md duration-300" target="_blank" title="<?php echo $val['dis']; ?>" rel="noopener noreferrer">
-        <img alt="<?php echo $val['name']; ?>" class="w-10 h-10 lg:w-12 lg:h-12 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://zezeshe.com/api/ico/?url=<?php echo $val['site']; ?>">
+        <img alt="<?php echo $val['name']; ?>" class="w-10 h-10 lg:w-12 lg:h-12 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="<?php
+        if(!empty($val['icon'])){echo $val['icon'];}else{
+        echo 'https://zezeshe.com/api/ico/?url='.$val['site'];
+        } ?>">
         <div class="flex-grow">
             <h2 class="text-gray-700 dark:text-gray-200 title-font font-medium"><?php echo $val['name']; ?></h2>
             <p class="text-gray-500 line-1"><?php echo $val['dis']; ?></p>
