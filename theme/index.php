@@ -54,9 +54,9 @@ all=data;setting=all.setting;
 <div class="flex flex-wrap -m-2" x-data="{link:''}" 
 x-init="fetch(api+'links.php?mid='+fenlei.mid).then(data => data.json()).then(data=>{link=data;});">
 <template x-for="(item,index) in link">
-<div class="p-2 lg:w-1/3 md:w-1/2 w-full">
+<div class="p-2 lg:w-1/3 md:w-1/2 w-full" x-data="{icon:item.icon}" x-init="if(!icon){icon='https://zezeshe.com/api/ico/?url='+item.site;}">
     <a :href="item.site" class="h-full bg-white dark:bg-gray-900 flex items-center border-gray-100 dark:border-gray-600 border p-3 rounded hover:shadow-md duration-300" target="_blank" :title="item.dis" rel="noopener noreferrer">
-        <img :alt="item.name" class="w-10 h-10 lg:w-12 lg:h-12 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" :src="'https://zezeshe.com/api/ico/?url='+item.site">
+        <img :alt="item.name" class="w-10 h-10 lg:w-12 lg:h-12 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" :src="icon">
         <div class="flex-grow">
             <h2 class="text-gray-700 dark:text-gray-200 title-font font-medium" x-text="item.name"></h2>
             <p class="text-gray-500 line-1" x-text="item.dis"></p>
