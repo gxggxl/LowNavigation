@@ -26,8 +26,13 @@ elseif(countif($links,$post['site'],'site')){
 }    
 if (filter_var($post['site'], FILTER_VALIDATE_URL ) === false ){
 notice('网址格式不正确！');exit;}
-if (!empty($post['icon'])&&filter_var($post['site'], FILTER_VALIDATE_URL ) === false){
+
+if (!empty($post['icon'])){
+if(strpos($post['icon'],'&') !== false||strpos($post['icon'],'?') !== false){
+notice('图标网址中不能含有?或&号！');exit;   
+}elseif(filter_var($post['icon'], FILTER_VALIDATE_URL ) === false){
 notice('图标网址格式不正确！');exit;
+}
 }
 
 $links[]=array('name'=>$post['name'],'dis'=>$post['dis'],'site'=>$post['site'],'mid'=>$post['mid'],'icon'=>$post['icon'],'time'=>time()); 
@@ -73,8 +78,12 @@ elseif(countif($links,$post['site'],'site',$hulue)){
 if (filter_var($post['site'], FILTER_VALIDATE_URL ) === false ){
 notice('网址格式不正确！');exit;}
 
-if (!empty($post['icon'])&&filter_var($post['site'], FILTER_VALIDATE_URL ) === false){
+if (!empty($post['icon'])){
+if(strpos($post['icon'],'&') !== false||strpos($post['icon'],'?') !== false){
+notice('图标网址中不能含有?或&号！');exit;   
+}elseif(filter_var($post['icon'], FILTER_VALIDATE_URL ) === false){
 notice('图标网址格式不正确！');exit;
+}
 }
 
 foreach ($links as &$fl) {
@@ -84,7 +93,7 @@ $fl['dis']=$post['dis'];
 $fl['site']=$post['site'];
 $fl['mid']=$post['mid'];
 $fl['icon']=$post['icon'];
-$fl['time']=time();;
+$fl['time']=time();
 }
 }unset($fl); 
 if (file_put_contents($linkpath, "<?php\n \$links= ".var_export($links, true).";\n?>")) {
