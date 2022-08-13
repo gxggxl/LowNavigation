@@ -71,10 +71,10 @@ fetch('<?php echo siteurl; ?>/admin/api.php?name='+name+'&dis='+dis+'&site='+enc
 a=data;
 });"> 
 
-<template x-for="(item,index) in a">
+<template x-for="(item,index) in a" :key="index">
 <div class="p-2 w-full">
-    <a :href="item.site" class="h-full bg-white dark:bg-gray-900 flex items-center border-gray-100 dark:border-gray-600 border p-4 rounded-lg hover:shadow-md duration-300" target="_blank">
-        <img :alt="item.name" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" :src="'https://zezeshe.com/api/ico/?url='+item.site">
+    <a :href="item.site" class="h-full bg-white dark:bg-gray-900 flex items-center border-gray-100 dark:border-gray-600 border p-4 rounded-lg hover:shadow-md duration-300" target="_blank" x-data="{icon:item.icon}">
+        <img :alt="item.name" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" :src="item.icon">
         <div class="flex-grow">
             <h2 class="text-gray-700 dark:text-gray-200 title-font font-medium" x-text="item.name"></h2>
             <p class="text-gray-500 line-1" x-text="item.dis"></p>
@@ -114,11 +114,11 @@ x-init="fetch('<?php echo siteurl; ?>/api/links.php').then(data => data.json()).
 a=data;
 });"> 
 
-<template x-for="(item,index) in a">
+<template x-for="(item,index) in a" :key="index">
 <template x-if="item['mid']==mid">
 <div class="p-2 w-full flex justify-between h-full bg-white dark:bg-gray-900 items-center border-gray-100 dark:border-gray-600 border p-3 rounded-lg hover:shadow-md duration-300 relative cursor-move" draggable="true" :class="{'border-blue-600': dragging === index}" @dragstart="dragging = index" @dragend="dragging = null">
 <div class="flex flex-grow">
-        <img :alt="item.name" class="w-10 h-10 lg:w-12 lg:h-12 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" :src="'https://zezeshe.com/api/ico/?url='+item.site">
+        <img :alt="item.name" class="w-10 h-10 lg:w-12 lg:h-12 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" :src="item.icon">
         <div class="flex-grow">
             <h2 class="text-gray-700 dark:text-gray-200 title-font font-medium" x-text="item.name"></h2>
             <p class="text-gray-500 line-1" x-text="item.dis"></p>
