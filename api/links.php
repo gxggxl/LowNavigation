@@ -42,5 +42,18 @@ unset($links[$key]);
 $newlinks=$links;   
 }
 
+for($i=0;$i<count($newlinks);$i++){
+if(empty($newlinks[$i]['icon'])){
+$newlinks[$i]['icon']='https://zezeshe.com/api/ico/?url='.$newlinks[$i]['site'];
+}
+}
+
+
+
+
+
+
+
+
 echo json_encode($newlinks);
 ?>
