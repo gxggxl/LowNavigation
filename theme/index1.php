@@ -3,7 +3,7 @@ include('config/cate.php');//载入分类
 include('config/link.php');//载入链接
 ?>
 <!doctype html>
-<html lang="zh-CN">
+<html lang="zh-CN"  x-data="{search:'',url:''}">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,user-scalable=no,viewport-fit=cover,initial-scale=1">
@@ -62,7 +62,7 @@ $newlinks=$link;
 <section class="py-3 sm:py-6 <?php if($n%2!=0){echo 'bg-white dark:bg-gray-900';}else{echo 'bg-gray-50 dark:bg-gray-700';} ?>">
         <div class="container flex flex-col px-4 py-6 mx-auto">
             
-<h3 class="text-lg font-semibold text-gray-800 dark:text-white capitalize border-b-2 border-gray-100 dark:border-gray-800 pb-1 mb-5 flex flex-row items-center"><svg class="w-5 h-5 inline text-blue-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg><span x-text="fenlei.name"><?php echo $name ?></span></h3>
+<h3 class="text-lg font-semibold text-gray-800 dark:text-white capitalize border-b-2 border-gray-100 dark:border-gray-800 pb-1 mb-5 flex flex-row items-center"><svg class="w-5 h-5 inline text-blue-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg><span><?php echo $name ?></span></h3>
 
             <div class="w-full">
 <div class="flex flex-wrap -m-2">
