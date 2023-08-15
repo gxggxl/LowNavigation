@@ -25,7 +25,7 @@ return $Arrzong;
 //没有设置图标的使用api自动获取
 for($i=0;$i<count($links);$i++){
 if(empty($links[$i]['icon'])){
-$links[$i]['icon']='https://zezeshe.com/api/ico/?url='.$links[$i]['site'];
+$links[$i]['icon']='https://favicon.yandex.net/favicon/v2/'.$links[$i]['site'];
 }
 }
 
