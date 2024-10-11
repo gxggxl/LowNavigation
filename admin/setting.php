@@ -18,7 +18,7 @@ require_once($path);
 
 
 <!--网站设置-->
-<div class="bg-white dark:bg-black p-2 sm:p-6 mt-9" x-data="{siteurl:'<?php echo $setting['siteurl']; ?>',sitedis:'<?php echo $setting['sitedis']; ?>',sitename:'<?php echo $setting['sitename']; ?>',keyword:'<?php echo $setting['keyword']; ?>',tongji:'<?php echo $setting['tongji']; ?>'}"> 
+<div class="bg-white dark:bg-black p-2 sm:p-6 mt-9" x-data="{siteurl:'<?php echo $setting['siteurl']; ?>',sitedis:'<?php echo $setting['sitedis']; ?>',sitename:'<?php echo $setting['sitename']; ?>',keyword:'<?php echo $setting['keyword']; ?>',tongji:'<?php echo htmlspecialchars($setting['tongji']); ?>'}"> 
 <h2 class="flex items-center text-xl font-medium text-gray-800 capitalize dark:text-white md:text-2xl"><svg class="w-6 h-6 inline text-blue-700 mr-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>网站设置</h2>
 
 
